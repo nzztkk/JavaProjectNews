@@ -45,8 +45,18 @@ public class AlertsClass {
         return alert;
     }
 
-
-
+    public Alert alertConfirm1(String title, String content, Runnable onCloseAction) {
+        // Create the custom dialog.
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(content);
+        alert.showAndWait();
+        if (onCloseAction != null) {
+            onCloseAction.run();
+        }
+        return alert;
+    }
 
 
 }

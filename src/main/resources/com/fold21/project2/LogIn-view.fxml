@@ -15,11 +15,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<StackPane fx:id="mainStackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #333B41;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fold21.project2.LoginController">
+<StackPane fx:id="mainStackPane" maxHeight="600.0" maxWidth="1000.0" minHeight="600.0" minWidth="1000.0" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #333B41;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fold21.project2.LoginController">
    <children>
-      <StackPane fx:id="spPageLogin" maxHeight="600.0" maxWidth="1000.0" minHeight="600.0" minWidth="1000.0" prefHeight="600.0" prefWidth="1000.0">
+      <StackPane fx:id="spPageLogin">
          <children>
-            <BorderPane fx:id="borderPane0" prefHeight="200.0" prefWidth="200.0">
+            <BorderPane fx:id="borderPane0">
                <left>
                   <VBox fx:id="vboxLeftSide0" prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: #56636E; -fx-background-radius: 0 30 30 0;" BorderPane.alignment="CENTER">
                      <children>

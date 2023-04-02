@@ -31,7 +31,7 @@ public class ResetPasswordController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("LogIn-view.fxml"));
         Parent root = loader.load();
 
-        Scene scene = new Scene(root);
+        Scene scene = new Scene(root, 1000, 600); // задаем размер для нового окна
         stage.setScene(scene);
     }
     SaveAndReadDataInFile saveAndReadDataInFile = new SaveAndReadDataInFile();

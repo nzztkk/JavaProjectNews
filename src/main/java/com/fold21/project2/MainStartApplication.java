@@ -29,13 +29,16 @@ public class MainStartApplication extends Application {
         Scene scene1 = new Scene(regRoot);
         stage.setScene(scene);
         stage.setScene(scene1);
-        //min width and height
-        stage.setMinWidth(1000);
-        stage.setMinHeight(600);
-        stage.setMaxWidth(1000);
-        stage.setMaxHeight(600);
+        //min width and height only for login page and reg page
+//        stage.setMinWidth(1000);
+//        stage.setMinHeight(600);
+//        stage.setMaxWidth(1000);
+//        stage.setMaxHeight(600);
         stage.setTitle("NEWS plus+");
         stage.show();
+
+
+
     }
 
     public static void main(String[] args) {

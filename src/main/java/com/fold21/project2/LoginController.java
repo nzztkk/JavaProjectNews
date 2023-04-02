@@ -9,6 +9,7 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.*;
+import java.util.Optional;
 
 
 public class LoginController {
@@ -38,16 +39,14 @@ public class LoginController {
 
     @FXML
     void handleLinkClick1(ActionEvent event) throws IOException {
-
         Stage stage = (Stage) linkToRegPage.getScene().getWindow();
-
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Reg-view.fxml"));
         Parent root = loader.load();
-
-        Scene scene = new Scene(root);
+        Scene scene = new Scene(root, 1000, 600); // задаем размер для нового окна
         stage.setScene(scene);
-
     }
+
+
 
     @FXML
     void handleLinkClick2(ActionEvent event) throws IOException {
@@ -73,8 +72,19 @@ public class LoginController {
 
         if (!username.equals("") && !password.equals("")) {
             if (saveAndReadDataInFile.loginUser(username, password)) {
-                // Open new window here
-                alertsClass.alertInformation("Success", null, "You are logged in!");
+                try {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("NewsPage-view.fxml"));
+                    Parent root = loader.load();
+                    NewsPageController newsController = loader.getController();
+                    newsController.initData(username); // передача имени пользователя в контроллер новостей
+                    Scene scene = new Scene(root);
+                    Stage stage = (Stage) textLineLogUsername.getScene().getWindow();
+                    stage.setScene(scene);
+                    stage.show();
+                    alertsClass.alertInformation("Success", null, "You are logged in!");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             } else {
                 alertsClass.alertError("Error", null, "Login or password is incorrect!");
             }
@@ -82,6 +92,12 @@ public class LoginController {
             alertsClass.alertError("Error", null, "Login and password fields cannot be empty!");
         }
     }
+
+
+
+
+
+
 
     private void handleCheckBox() {
         if (checkBoxRememberUser.isSelected()) {
@@ -98,6 +114,7 @@ public class LoginController {
         btnLogIn.setOnAction(event -> handleLogIn());
         checkBoxRememberUser.setOnAction(event -> handleCheckBox());
     }
+
 
 
 
