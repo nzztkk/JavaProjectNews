@@ -1,0 +1,12 @@
+.check-box {
+    -fx-font-size: 14px;
+    -fx-text-fill: #000000;
+}
+
+.check-box:hover {
+    -fx-background-color: #EEEEEE;
+}
+
+.check-box:pressed {
+    -fx-background-color: #DDDDDD;
+}
