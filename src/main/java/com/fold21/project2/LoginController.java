@@ -78,9 +78,16 @@ public class LoginController {
                     NewsPageController newsController = loader.getController();
                     newsController.initData(username); // передача имени пользователя в контроллер новостей
                     Scene scene = new Scene(root);
-                    Stage stage = (Stage) textLineLogUsername.getScene().getWindow();
-                    stage.setScene(scene);
-                    stage.show();
+                    Stage oldStage = (Stage) textLineLogUsername.getScene().getWindow();
+                    oldStage.close(); // закрыть старое окно
+                    Stage newStage = new Stage();
+                    newStage.setTitle("News plus+");
+                    newStage.setMinWidth(1600);
+                    newStage.setMinHeight(800);
+                    newStage.setMaximized(true);
+
+                    newStage.setScene(scene);
+                    newStage.show();
                     alertsClass.alertInformation("Success", null, "You are logged in!");
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -92,6 +99,7 @@ public class LoginController {
             alertsClass.alertError("Error", null, "Login and password fields cannot be empty!");
         }
     }
+
 
 
 

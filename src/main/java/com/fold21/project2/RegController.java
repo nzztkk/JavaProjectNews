@@ -15,6 +15,11 @@ public class RegController {
 
 
     private static LoginController loginController;
+    private static Stage stage;
+
+    public static void setStage(Stage stage) {
+        RegController.stage = stage;
+    }
 
     @FXML
     private Button btnSingUp;
@@ -39,6 +44,8 @@ public class RegController {
 
     @FXML
     private TextField textLineSurname;
+
+
 
 
     @FXML

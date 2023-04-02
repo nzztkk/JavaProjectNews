@@ -10,6 +10,14 @@ import java.io.IOException;
 
 public class MainStartApplication extends Application {
 
+    private void setupSceneSize(Stage stage, double minWidth, double minHeight, double maxWidth, double maxHeight) {
+        stage.setMinWidth(minWidth);
+        stage.setMinHeight(minHeight);
+        stage.setMaxWidth(maxWidth);
+        stage.setMaxHeight(maxHeight);
+    }
+
+
     @Override
     public void start(Stage stage) throws IOException {
 
@@ -21,25 +29,39 @@ public class MainStartApplication extends Application {
         Parent regRoot = regLoader.load();
         RegController regController = regLoader.getController();
 
+        FXMLLoader newsLoader = new FXMLLoader(getClass().getResource("NewsPage-view.fxml"));
+        Parent newsRoot = newsLoader.load();
+
         // Настраиваем контроллеры
         LoginController.setRegController(regController);
         RegController.setLoginController(loginController);
 
-        Scene scene = new Scene(loginRoot);
-        Scene scene1 = new Scene(regRoot);
-        stage.setScene(scene);
-        stage.setScene(scene1);
-        //min width and height only for login page and reg page
-//        stage.setMinWidth(1000);
-//        stage.setMinHeight(600);
-//        stage.setMaxWidth(1000);
-//        stage.setMaxHeight(600);
-        stage.setTitle("NEWS plus+");
+
+        Scene regScene = new Scene(regRoot, 1000, 600);
+        stage.setScene(regScene);
+        setupSceneSize(stage, 1050, 650, 1050, 650);
+        stage.setTitle("NEWS plus+ - Registration");
+
+
+        Scene loginScene = new Scene(loginRoot, 1000, 600);
+        stage.setScene(loginScene);
+        setupSceneSize(stage, 1050, 650, 1050, 650);
+        stage.setTitle("NEWS plus+ - Login");
         stage.show();
 
-
+        Stage newsStage = new Stage();
+        Scene newsScene = new Scene(newsRoot, 1000, 800);
+        newsStage.setScene(newsScene);
+        newsStage.setTitle("News plus+ - News");
+        newsStage.setMinWidth(1600);
+        newsStage.setMinHeight(800);
+        newsStage.setMaximized(true);
 
     }
+
+
+
+
 
     public static void main(String[] args) {
         launch();
